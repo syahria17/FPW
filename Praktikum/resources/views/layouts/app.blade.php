@@ -8,11 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel= "stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar -expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Blade Praktikum</a>
-    </nav>
+    {{-- Header dipisah ke file lain --}}
+    @include('layouts.header')
+
     <div class="container mt-4">
-        @yield(section: 'content')
+        @yield('content')
     </div>   
-</body>
+
+    {{-- Footer dipisah ke file lain --}}
+    @include('layouts.footer')
 </html>

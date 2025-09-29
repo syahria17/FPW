@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,9 @@ Route::get('/product/{number}', [ProductController::class, 'index'])
 Route::get('/route_count/{id}', [ProductController::class,'show']);
 
 Route::get('/product/{id}', [ProductController::class, 'index']);
+
+Route::get('/uts', [UtsController::class, 'index'])->name('uts.index');
+Route::get('/uts/web', [UtsController::class, 'web'])->name('uts.web');
+Route::get('/uts/database', [UtsController::class, 'database'])->name('uts.database');
 
 require __DIR__.'/auth.php';
