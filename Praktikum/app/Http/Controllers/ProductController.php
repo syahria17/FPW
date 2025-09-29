@@ -9,10 +9,12 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($number)
+    public function index()
     {
-        $result = intval($number) + 7;
-        return view('product', ['angka' => $result]); 
+        // $result = intval($number) + 7;
+        // return view('product', ['angka' => $result]); 
+        $nama = 'Mahasiswa UNSIKA';
+        return view(view:'product', data: ['nama'=> $nama, 'alertMessage' => 'Selamat Belajar blade', 'alertType'=>'success']);
     }
 
     /**
@@ -36,7 +38,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view(view: 'barang', data: ['isi_data'=>$id]);
     }
 
     /**

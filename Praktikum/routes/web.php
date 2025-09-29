@@ -37,4 +37,8 @@ Route::get('/product/{number}', [ProductController::class, 'index'])
     ->middleware(['auth','rollcheck:admin,owner'])
     ->name('product.index');
 
+Route::get('/route_count/{id}', [ProductController::class,'show']);
+
+Route::get('/product/{id}', [ProductController::class, 'index']);
+
 require __DIR__.'/auth.php';
