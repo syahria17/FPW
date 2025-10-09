@@ -34,16 +34,21 @@ Route::get('/rahasia', function(): string{
     return 'ini path rahasia';
 })-> middleware(['auth', 'rollcheck:admin']);
 
-Route::get('/product/{number}', [ProductController::class, 'index'])
-    ->middleware(['auth','rollcheck:admin,owner'])
-    ->name('product.index');
+// Route::get('/product/{number}', [ProductController::class, 'index'])
+//     ->middleware(['auth','rollcheck:admin,owner'])
+//     ->name('product.index');
 
 Route::get('/route_count/{id}', [ProductController::class,'show']);
 
-Route::get('/product/{id}', [ProductController::class, 'index']);
+//Route::get('/product/{id}', [ProductController::class, 'index']);
 
 Route::get('/uts', [UtsController::class, 'index'])->name('uts.index');
 Route::get('/uts/web', [UtsController::class, 'web'])->name('uts.web');
 Route::get('/uts/database', [UtsController::class, 'database'])->name('uts.database');
+
+Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
+Route::post('/product', [ProductController::class, 'store'])->name("product-store");
+
+Route::get('/produk/{nilai}', [ProductController::class, 'show'])->name('produk.show');
 
 require __DIR__.'/auth.php';
