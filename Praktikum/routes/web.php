@@ -51,4 +51,6 @@ Route::post('/product', [ProductController::class, 'store'])->name("product-stor
 
 Route::get('/produk/{nilai}', [ProductController::class, 'show'])->name('produk.show');
 
+Route::resource('products', ProductController::class);
+
 require __DIR__.'/auth.php';
